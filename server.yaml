@@ -1,0 +1,60 @@
+- path: /auth/register
+  method: POST
+  response:
+    status: 201
+    body:
+      id: 234
+      email: "some@email.com"
+
+- path: /auth/login
+  method: POST
+  response:
+    status: 200
+    body:
+      token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjI0MyIsImF1ZCI6ImZha2Utc2VydmVyIiwiZXhwIjoxNTcxNTA0MTkzfQ.q32EAToy1ne5Lqd2NfZ5SYEWWxAMy6TTVWbTWFBhNvg"
+
+- path: /auth/logout
+  method: POST
+  response:
+    status: 204
+
+- path: /bad-request
+  method: GET
+  response:
+    status: 404
+
+- path: /users/:id
+  method: GET
+  response:
+    status: 200
+    body:
+      id: 1
+      lastname: "Mustermann"
+      firstname: "Max"
+      birthdate: "1990-01-01"
+      active: true
+
+
+- path: /users
+  method: GET
+  token: required
+  response:
+    status: 200
+    body:
+      total: 2
+      results: [
+        {
+          id: 1,
+          lastname: "Mustermann",
+          firstname: "Max",
+          birthday: "1990-01-01",
+          active: true
+        },
+        {
+          id: 2,
+          lastname: "Musterfrau",
+          firstname: "Maria",
+          birthday: "1992-01-18",
+          active: false
+        }
+      ]

@@ -1,2 +1,2 @@
 # fake-server
-Easy way to mock RESTfull APIs.
+Easy way to mock RESTful APIs.
